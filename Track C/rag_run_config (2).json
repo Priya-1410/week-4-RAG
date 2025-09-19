@@ -1,0 +1,34 @@
+{
+  "chunk_settings_tested": [
+    {
+      "chunk_size": 500,
+      "chunk_overlap": 100
+    },
+    {
+      "chunk_size": 300,
+      "chunk_overlap": 50
+    }
+  ],
+  "embedding_models_tested": [
+    "sentence-transformers/all-MiniLM-L6-v2"
+  ],
+  "llm": {
+    "providers": [
+      "google-genai",
+      "hf-local"
+    ],
+    "models": [
+      "gemini-2.5-flash",
+      "google/flan-t5-small (LoRA)"
+    ]
+  },
+  "retriever_k": 4,
+  "finetune": {
+    "base_model": "google/flan-t5-small",
+    "adapter_dir": "artifacts/ft/flan_t5_small_lora",
+    "dataset": "my_papers.jsonl",
+    "train_n": 800,
+    "eval_n": 200,
+    "seed": 42
+  }
+}
